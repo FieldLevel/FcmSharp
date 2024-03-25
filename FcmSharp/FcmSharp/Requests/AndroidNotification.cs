@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using FcmSharp.Requests.Converters;
 using Newtonsoft.Json;
 
 namespace FcmSharp.Requests
@@ -33,6 +34,10 @@ namespace FcmSharp.Requests
 
         [JsonProperty("body_loc_args")]
         public string[] BodyLocArgs { get; set; }
+
+        [JsonProperty("notification_priority")]
+        [JsonConverter(typeof(NotificationPriorityEnumConverter))]
+        public NotificationPriorityEnum NotificationPriority { get; set; }
 
         [JsonProperty("title_loc_key")]
         public string TitleLocKey { get; set; }
